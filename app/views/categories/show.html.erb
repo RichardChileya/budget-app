@@ -1,7 +1,7 @@
 <h1>Categories Show Page</h1>
 <nav class="navbar">
   <li class="nav_head">
-    <%= link_to categories_path do %>
+    <%= link_to user_category_dealings_path(category_id: @category.id) do %>
       <i class="fa-solid fa-arrow-left"></i>
     <% end %>
       <h3>Transactions</h3>
@@ -49,5 +49,6 @@
   <% end %>
   <p class="total">Total Payment: $<%= @total.floor(2) %></p>
   <% end%>
-  <%= link_to "New Transaction", new_category_dealing_path(@category), class: "link_btn"%>
+  <%= link_to "New Transaction", new_user_category_dealing_path(user_id: current_user.id, category_id: @category.id), class: "link_btn"%>
+
 </div>
