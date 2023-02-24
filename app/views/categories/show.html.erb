@@ -1,0 +1,54 @@
+<h1>Categories Show Page</h1>
+<nav class="navbar">
+  <li class="nav_head">
+    <%= link_to user_category_dealings_path(category_id: @category.id) do %>
+      <i class="fa-solid fa-arrow-left"></i>
+    <% end %>
+      <h3>Transactions</h3>
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </li>
+  <%= render "shared/navbar" %>
+</nav>
+
+<%= render "shared/flash" %>
+
+<div class="deal_container">
+  <%= render "shared/catalog_card", catalog: @category %>
+  <hr/>
+  <% if @category_dealings.empty?%>
+    <h3 class="zero_content"> No Content Added </h3>
+  <% else %>
+    <% @category_dealings.each do |c| %>
+  <li class="catalog_list">
+    <div class="catolog_content">
+      <div class="created_at">
+        <p class="hour"><%= c.created_at.strftime("%h")%></p>
+        <p class="day"><%= c.created_at.strftime("%d")%></p>
+        <p class="year hour"><%= c.created_at.strftime("%y")%></p>
+      </div>
+      <div class="data">
+        <%= c.dealing.name %>
+        <p class="time">
+          <span>
+            <i class="fa-solid fa-stopwatch-20"></i>
+            <%= c.created_at.strftime("%T")%>
+          </span>
+          <span><%= c.created_at.strftime("%p")%></span>
+        </p>
+      </div>
+    </div>
+
+    <div class="content_class">
+      <p>$<%= c.dealing.amount %></p>
+        <%= button_to category_dealing_path(@category, c.id), method: :delete do %>
+          <i class="fa-solid fa-dumpster"></i>
+        <%end%>
+    </div>  
+  </li>  
+
+  <% end %>
+  <p class="total">Total Payment: $<%= @total.floor(2) %></p>
+  <% end%>
+  <%= link_to "New Transaction", new_user_category_dealing_path(user_id: current_user.id, category_id: @category.id), class: "link_btn"%>
+
+</div>
