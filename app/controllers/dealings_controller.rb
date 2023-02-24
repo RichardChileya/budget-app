@@ -21,7 +21,6 @@ class DealingController < ApplicationController
     redirect_to category_path(id: params[:category_id]), alert: 'Transaction deleted successfully'
   end
 
-
   private
 
   def dealing_params
