@@ -3,7 +3,7 @@
 <div class="form__container">
 <h2>New Category</h2>
 
-<%= form_with model: @category, url: user_categories_path, method: :post, local: true, scope: :new_category do |f| %>
+<%= form_with model: @category, url: categories_path, method: :post, data: { turbo: false } do |f| %>
     <div class="form__control">
       <%= f.label :name %><br />
       <%= f.text_field :name %>
