@@ -1,3 +1,4 @@
+
 .form__container {
   margin: auto;
   width: 100%;
@@ -5,12 +6,16 @@
 }
 
 .form__control {
-  padding: 0.5rem 0;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 input,
 select {
-  width: 100%;
+  width: 70%;
   padding: 0.5rem 1rem;
   margin: 0.3rem 0;
   border: 1px solid #8b8c8b5e;
