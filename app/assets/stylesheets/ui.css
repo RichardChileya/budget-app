@@ -28,7 +28,6 @@ img {
   margin-right: 1rem;
 }
 
-
 .deal_container {
   margin: 1rem;
 }
@@ -55,10 +54,6 @@ img {
   display: grid;
   grid-template-columns: 2fr 1fr;
   margin: 0.4rem;
-}
-
-.content {
-  display: flex;
 }
 
 .total {

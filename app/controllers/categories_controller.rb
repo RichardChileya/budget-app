@@ -6,7 +6,7 @@ class CategoriesController < ApplicationController
   def new
     @category = Category.new
     respond_to do |format|
-      format.html {render :new,locals: {category: @category}}
+      format.html { render :new, locals: { category: @category } }
     end
   end
 

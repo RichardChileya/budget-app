@@ -10,7 +10,8 @@ class DealingController < ApplicationController
     if @dealing.save
       CategoryDealing.create(dealing_id: @dealing.id, categoty_id: params[:category])
       redirect_to category_path(id: params[:category_id,]), notice: 'Transaction Added Successfuly'
-    else render :new
+    else
+      render :new
     end
   end
 
