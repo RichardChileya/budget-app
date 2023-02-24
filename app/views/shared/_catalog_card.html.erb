@@ -1,10 +1,10 @@
 <% @total = 0 %>
-  <%= catalog.category_dealings.each { |u| @total += u.dealing.amount }%>
+  <% catalog.category_dealings.each { |u| @total += u.dealing.amount }%>
 
   <li class="catalog">
     <div class="content">
       <%= image_tag "#{catalog.icon}" %>
-      <h3><%= link_to catalog.name, user_categories_path(catalog.id)%></h3>
+      <h3><%= link_to catalog.name, category_path( catalog)%></h3>
     </div>
     <p>Total: $<%= @total.floor %></p>
   </li>
