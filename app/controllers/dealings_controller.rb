@@ -8,7 +8,7 @@ class DealingsController < ApplicationController
     @dealing = Dealing.new(dealing_params)
     @dealing.author = current_user
     if @dealing.save
-    @cd =CategoryDealing.create(dealing_id: @dealing.id, category_id: params[:category])
+      @cd = CategoryDealing.create(dealing_id: @dealing.id, category_id: params[:category])
       redirect_to category_path(@cd.category), notice: 'Transaction Added Successfuly'
     else
       render :new
