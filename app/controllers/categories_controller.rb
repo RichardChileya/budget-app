@@ -12,9 +12,9 @@ class CategoriesController < ApplicationController
 
   def create
     @category = Category.new(category_params)
-    @category.author_id = params[:user_id]
+    @category.author = current_user
     if @category.save
-      redirect_to user_categories_path(params[:user_id]), notice: 'Category Added successfully'
+      redirect_to root_path(@category), notice: 'Category Added successfully'
     else
       render :new
     end
@@ -22,14 +22,13 @@ class CategoriesController < ApplicationController
 
   def show
     @category = Category.find(params[:id])
-    @category_dealings = CategoryDealing.includes(:dealing).where(category: @category).order(created_at: :desc)
-    @total = 0
-    @category_dealings.each { |z| @total += z.dealing.amount }
+    @category_dealings = @category.dealings.order(created_at: :desc)
+    @total = @category_dealings.sum(:amount)
   end
 
   private
 
   def category_params
-    params.require(:new_category).permit(:name, :icon)
+    params.require(:category).permit(:name, :icon)
   end
 end

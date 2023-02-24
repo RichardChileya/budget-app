@@ -1,4 +1,4 @@
-class DealingController < ApplicationController
+class DealingsController < ApplicationController
   def new
     @dealing = Dealing.new
     @categories = Category.where(author: current_user)
@@ -8,8 +8,8 @@ class DealingController < ApplicationController
     @dealing = Dealing.new(dealing_params)
     @dealing.author = current_user
     if @dealing.save
-      CategoryDealing.create(dealing_id: @dealing.id, categoty_id: params[:category])
-      redirect_to category_path(id: params[:category_id,]), notice: 'Transaction Added Successfuly'
+      @cd = CategoryDealing.create(dealing_id: @dealing.id, category_id: params[:category])
+      redirect_to category_path(@cd.category), notice: 'Transaction Added Successfuly'
     else
       render :new
     end
@@ -24,6 +24,6 @@ class DealingController < ApplicationController
   private
 
   def dealing_params
-    params.require(:dealing).permit(:name, :amount, :category)
+    params.require(:dealing).permit(:name, :amount)
   end
 end

@@ -66,8 +66,11 @@ img {
 
 .data {
   display: flex;
-  flex-direction: column;
+
+  /* flex-direction: column; */
   justify-content: space-between;
+  gap: 2rem;
+  align-content: baseline;
 }
 
 .time {
@@ -93,4 +96,31 @@ img {
   color: #434b54;
   margin: auto;
   margin-top: 50%;
+}
+
+.Add_btn {
+  border: #0a2f5a solid 1px;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 0.2rem 1rem;
+  display: flex;
+  color: azure;
+  background-color: green;
+  width: 3rem;
+  align-self: flex-end;
+}
+
+.catolog_content {
+  display: flex;
+  margin: auto;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.back_btn {
+  margin: 1rem;
+  padding: 3px;
+  background-color: rgb(172, 57, 7);
+  color: azure;
+  border: red 1px solid;
 }
