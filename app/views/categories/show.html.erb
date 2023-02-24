@@ -11,10 +11,12 @@
 </nav>
 
 <%= render "shared/flash" %>
-<%= link_to "Back", root_path( @category), class: "back_btn"%>
+<div class="show-btn">
+  <%= link_to "Back", root_path( @category), class: "back_btn"%>
 
-<div class="deal_container">
   <%= link_to "Add", new_category_dealing_path( @category), class: "Add_btn"%>
+</div>
+<div class="deal_container">
   <%= render "shared/catalog_card", catalog: @category %>
 
   <hr/>
