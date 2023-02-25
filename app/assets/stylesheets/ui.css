@@ -138,11 +138,17 @@ img {
   margin: 1rem;
   padding: 10px;
   width: 100%;
-  border-radius: 1rem;
-  background-color: #556f8d22;
+  border-radius: 10px;
+  background-color: #fff;
 }
 
 p {
   font-size: 20px;
   font-weight: bold;
+}
+
+.name-time {
+  display: flex;
+  flex-direction: column;
+  font-size: 15px;
 }

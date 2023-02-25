@@ -38,6 +38,10 @@ body {
   font-family: 'Montserrat', sans-serif;
 }
 
+html {
+  background-color: #f1f3f2;
+}
+
 .navbar {
   padding: 0 1rem;
   background-color: #3778c2;
@@ -106,4 +110,9 @@ svg {
   padding: 1rem;
   margin: 1rem;
   border-radius: 8px;
+}
+
+.catolog_content {
+  background-color: #f9f6f6;
+  gap: 5px;
 }
