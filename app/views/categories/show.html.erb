@@ -11,10 +11,12 @@
 </nav>
 
 <%= render "shared/flash" %>
-<%= link_to "Back", root_path( @category), class: "back_btn"%>
+<div class="show-btn">
+  <%= link_to "Back", root_path( @category), class: "back_btn"%>
 
-<div class="deal_container">
   <%= link_to "Add", new_category_dealing_path( @category), class: "Add_btn"%>
+</div>
+<div class="deal_container">
   <%= render "shared/catalog_card", catalog: @category %>
 
   <hr/>
@@ -32,13 +34,16 @@
         <p class="year hour"><%= c.created_at.strftime("%y")%></p>
       </div>
       <div class="data">
+      <div class="name-time">
         <%= c.name %>
+        <span><%= c.created_at.strftime("%T")%>
+        <%= c.created_at.strftime("%p")%>
+        </span>
+
+      </div>  
         <p class="time">
           <span>
-            <i class="fa-solid fa-stopwatch-20"></i>
-            <%= c.created_at.strftime("%T")%>
           </span>
-          <span><%= c.created_at.strftime("%p")%></span> <br>
         </p>
           <span>Amount: <%= c.amount %></span>
       </div>
